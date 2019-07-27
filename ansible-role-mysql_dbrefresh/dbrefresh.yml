@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  # gather_facts: yes
+  # remote_user: root
+  # become: yes
+  roles:
+    - role: dbrefresh
+      user_db_src: zabbix
+      pass_db_src: CB81dXUfgHNaz0y9KJC)
+      host_db_src: 172.27.0.11
+
+      user_db_dest: zabbix
+      pass_db_dest: CB81dXUfgHNaz0y9KJC)
+      host_db_dest: 172.27.0.12
