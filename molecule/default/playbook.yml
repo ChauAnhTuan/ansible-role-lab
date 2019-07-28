@@ -16,5 +16,4 @@
   #     changed_when: false
 
   roles:
-    - role: ansible-role-lab/ansible-role-mysql_dbrefresh
-    - role: ansible-role-lab/ansible-role-nginx
+    - role: ansible-role-lab
