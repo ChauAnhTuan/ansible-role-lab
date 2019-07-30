@@ -23,7 +23,7 @@
       when:
         - zabbix_server_database_long == "mysql"
     - role: ansible-role-lab/ansible-role.postgresql
-       when:
+      when:
         - zabbix_server_database_long == "postgresql"
     - role: ansible-role-lab/ansible-role.zabbixserver
     - role: ansible-role-lab/ansible-role.zabbix-web
