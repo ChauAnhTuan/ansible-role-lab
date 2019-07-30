@@ -16,4 +16,8 @@
   #     changed_when: false
 
   roles:
-    - role: ansible-role-lab
+    - role: ansible-role-lab/ansible-role.apache
+    - role: ansible-role-lab/ansible-role.mysql
+    - role: ansible-role-lab/ansible-role.postgresql
+    - role: ansible-role-lab/ansible-role.zabbixserver
+    - role: ansible-role-lab/ansible-role.zabbix-web
