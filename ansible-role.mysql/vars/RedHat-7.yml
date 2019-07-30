@@ -1,5 +1,5 @@
 ---
-__mysql_daemon: mariadb
+__mysql_daemon: mysqld
 __mysql_packages:
   - mariadb
   - mariadb-server
@@ -7,7 +7,7 @@ __mysql_packages:
   - MySQL-python
   - perl-DBD-MySQL
 __mysql_slow_query_log_file: /var/log/mysql-slow.log
-__mysql_log_error: /var/log/mariadb/mariadb.log
+__mysql_log_error: /var/log/mariadb.log
 __mysql_syslog_tag: mariadb
 __mysql_pid_file: /var/run/mariadb/mariadb.pid
 __mysql_config_file: /etc/my.cnf
