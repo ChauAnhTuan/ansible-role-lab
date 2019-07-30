@@ -2,22 +2,28 @@
 - name: Converge
   hosts: all
 
-  # vars:
-  #   nginx_use_ppa: true
-  #   nginx_remove_default_vhost: true
-  #   nginx_vhosts:
-  #     - server_name: "test.dev"
-  #       root: "/var/www/test"
+  vars:
+    nginx_use_ppa: true
+    nginx_remove_default_vhost: true
+    nginx_vhosts:
+      - server_name: "test.dev"
+        root: "/var/www/test"
 
-  # pre_tasks:
-  #   - name: Update apt cache.
-  #     apt: update_cache=yes cache_valid_time=600
-  #     when: ansible_os_family == 'Debian'
-  #     changed_when: false
+  pre_tasks:
+    - name: Set enviroment
+      set_fact:
+        zabbix_url: zabbix.example.com
+        zabbix_server_dbname: zabbix-server
+        zabbix_server_dbuser: zabbix-server
+        zabbix_server_dbpassword: zabbix-server
 
   roles:
     - role: ansible-role-lab/ansible-role.apache
     - role: ansible-role-lab/ansible-role.mysql
+      when:
+        - zabbix_server_database_long == "mysql"
     - role: ansible-role-lab/ansible-role.postgresql
+       when:
+        - zabbix_server_database_long == "postgresql"
     - role: ansible-role-lab/ansible-role.zabbixserver
     - role: ansible-role-lab/ansible-role.zabbix-web
