@@ -95,7 +95,7 @@
     - database
 
 - name: "PostgreSQL | Create schema"
-  shell: "{{ postgres_create_command | join(' ') }}"
+  command: "{{ postgres_create_command | join(' ') }}"
   args:
     creates: /etc/zabbix/schema.done
     warn: false
@@ -109,7 +109,7 @@
     - database
 
 - name: "Get complete path"
-  shell: ls -d {{ datafiles_path }}
+  command: ls -d {{ datafiles_path }}
   register: datafiles_path_full
   changed_when: false
   when:
@@ -146,7 +146,7 @@
     - database
 
 - name: "PostgreSQL | Importing images file"
-  shell: "{{ postgres_images_command | join(' ') }}"
+  command: "{{ postgres_images_command | join(' ') }}"
   args:
     creates: /etc/zabbix/images.done
     warn: false
@@ -158,7 +158,7 @@
     - database
 
 - name: "PostgreSQL | Importing data file"
-  shell: "{{ postgres_data_command | join(' ') }}"
+  command: "{{ postgres_data_command | join(' ') }}"
   args:
     creates: /etc/zabbix/data.done
     warn: false
