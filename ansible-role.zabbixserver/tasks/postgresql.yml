@@ -133,7 +133,7 @@
     - create_dir_or_not.stat.exists
 
 - name: "PostgreSQL | Importing schema file"
-  shell: "{{ postgres_schema_command | join(' ') }}"
+  command: "{{ postgres_schema_command | join(' ') }}"
   args:
     creates: /etc/zabbix/schema.done
     warn: false
