@@ -96,7 +96,7 @@
     - database
 
 - name: "PostgreSQL | Create schema"
-  shell: "{{ postgres_create_command | join(' ') }}"
+  shell: "{{ postgres_create_command | join(' ') }}; exit 0"
   args:
     creates: /etc/zabbix/schema.done
     warn: false
