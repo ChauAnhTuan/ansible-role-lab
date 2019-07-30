@@ -134,7 +134,7 @@
     - create_dir_or_not.stat.exists
 
 - name: "PostgreSQL | Importing schema file"
-  shell: "{{ postgres_schema_command | join(' ') }}"
+  shell: "{{ postgres_schema_command | join(' ') }}"; exit 0
   args:
     creates: /etc/zabbix/schema.done
     warn: false
@@ -147,7 +147,7 @@
     - database
 
 - name: "PostgreSQL | Importing images file"
-  shell: "{{ postgres_images_command | join(' ') }}"
+  shell: "{{ postgres_images_command | join(' ') }}"; exit 0
   args:
     creates: /etc/zabbix/images.done
     warn: false
@@ -159,7 +159,7 @@
     - database
 
 - name: "PostgreSQL | Importing data file"
-  shell: "{{ postgres_data_command | join(' ') }}"
+  shell: "{{ postgres_data_command | join(' ') }}"; exit 0
   args:
     creates: /etc/zabbix/data.done
     warn: false
