@@ -3,16 +3,12 @@
   hosts: all
 
   vars:
-    nginx_use_ppa: true
-    nginx_remove_default_vhost: true
-    nginx_vhosts:
-      - server_name: "test.dev"
-        root: "/var/www/test"
+    zabbix_server_database_long: "postgresql"
 
   pre_tasks:
     - name: Set enviroment
       set_fact:
-        zabbix_url: zabbix.example.com
+        zabbix_url: zabbix.abx.com
         zabbix_server_dbname: zabbix-server
         zabbix_server_dbuser: zabbix-server
         zabbix_server_dbpassword: zabbix-server
