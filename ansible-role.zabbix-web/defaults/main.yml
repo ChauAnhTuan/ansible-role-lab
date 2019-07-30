@@ -4,7 +4,7 @@
 zabbix_version: 4.2
 zabbix_repo: zabbix
 zabbix_web_package_state: present
-zabbix_selinux: False
+zabbix_selinux: false
 
 zabbix_url: zabbix.example.com
 zabbix_websrv: apache
@@ -13,10 +13,10 @@ zabbix_url_aliases: []
 zabbix_apache_vhost_port: 80
 zabbix_apache_vhost_tls_port: 443
 zabbix_timezone: Europe/Amsterdam
-zabbix_vhost: True
+zabbix_vhost: true
 zabbix_apache_vhost_listen_ip: "*"
-zabbix_apache_tls: False
-zabbix_apache_redirect: False
+zabbix_apache_tls: false
+zabbix_apache_redirect: false
 zabbix_apache_tls_crt: /etc/pki/server.crt
 zabbix_apache_tls_key: /etc/pki/server.key
 zabbix_apache_tls_chain:

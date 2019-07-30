@@ -6,8 +6,8 @@ zabbix_version: 4.2
 zabbix_repo: zabbix
 
 zabbix_server_package_state: present
-zabbix_server_install_recommends: True
-zabbix_server_install_database_client: True
+zabbix_server_install_recommends: true
+zabbix_server_install_database_client: true
 
 zabbix_repo_yum:
   - name: zabbix
@@ -26,8 +26,8 @@ zabbix_repo_yum:
 # Database
 zabbix_server_database: pgsql
 zabbix_server_database_long: postgresql
-zabbix_database_creation: True
-zabbix_database_sqlload: True
+zabbix_database_creation: true
+zabbix_database_sqlload: true
 
 # zabbix-server specific vars
 zabbix_server_listenport: 10051
@@ -114,5 +114,5 @@ zabbix_server_vmwareperffrequency: 60
 zabbix_server_vmwaretimeout: 10
 
 # SELinux specific
-selinux_allow_zabbix_can_network: False
-selinux_allow_zabbix_can_http: False
+selinux_allow_zabbix_can_network: false
+selinux_allow_zabbix_can_http: false

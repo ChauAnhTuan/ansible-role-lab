@@ -39,7 +39,7 @@
   until: zabbix_server_repo_files_installed is succeeded
   when:
     - zabbix_repo == "zabbix"
-  become: yes
+  become: true
   tags:
     - zabbix-server
     - init
@@ -59,8 +59,8 @@
 - name: apt-get clean
   shell: apt-get clean; rm -rf /tmp/*; apt-get update
   args:
-    warn: False
-  changed_when: False
+    warn: false
+  changed_when: false
   tags:
     - skip_ansible_lint
 
@@ -85,7 +85,7 @@
   apt:
     pkg: zabbix-server-{{ zabbix_server_database }}
     state: "{{ zabbix_server_package_state }}"
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 0
     install_recommends: "{{ zabbix_server_install_recommends }}"
   register: zabbix_server_package_installed
