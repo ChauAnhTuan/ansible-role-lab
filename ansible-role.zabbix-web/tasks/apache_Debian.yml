@@ -2,7 +2,7 @@
 - name: "Debian | Install legacy PHP integration for Apache"
   apt:
     state: present
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 3600
     name:
       - libapache2-mod-php

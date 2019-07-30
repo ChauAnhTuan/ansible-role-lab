@@ -13,7 +13,7 @@
     url: http://repo.zabbix.com/zabbix-official-repo.key
   when:
     - zabbix_repo == "zabbix"
-  become: yes
+  become: true
   tags:
     - zabbix-web
     - init
@@ -41,7 +41,7 @@
   apt:
     pkg: zabbix-frontend-php
     state: "{{ zabbix_web_package_state }}"
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 0
   register: zabbix_web_package_install
   until: zabbix_web_package_install is succeeded

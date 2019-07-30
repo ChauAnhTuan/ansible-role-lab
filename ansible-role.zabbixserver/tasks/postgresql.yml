@@ -53,8 +53,8 @@
         port: "{{ zabbix_server_dbport }}"
         priv: ALL
         state: present
-        encrypted: yes
-  become: yes
+        encrypted: true
+  become: true
   become_user: postgres
   delegate_to: "{{ delegated_dbhost }}"
   when:
@@ -86,7 +86,7 @@
         port: "{{ zabbix_server_dbport }}"
         priv: ALL
         state: present
-        encrypted: yes
+        encrypted: true
   when:
     - zabbix_database_creation
     - zabbix_server_pgsql_login_host is defined
@@ -98,7 +98,7 @@
   shell: "{{ postgres_create_command | join(' ') }}"
   args:
     creates: /etc/zabbix/schema.done
-    warn: no
+    warn: false
   environment:
     PGPASSWORD: '{{ zabbix_server_dbpassword }}'
   when:
@@ -111,7 +111,7 @@
 - name: "Get complete path"
   shell: ls -d {{ datafiles_path }}
   register: datafiles_path_full
-  changed_when: False
+  changed_when: false
   when:
     - (zabbix_version is version_compare('3.0', '<') and zabbix_database_sqlload) or (zabbix_repo == "epel" and zabbix_database_sqlload)
   tags:
@@ -136,7 +136,7 @@
   shell: "{{ postgres_schema_command | join(' ') }}"
   args:
     creates: /etc/zabbix/schema.done
-    warn: no
+    warn: false
   environment:
     PGPASSWORD: '{{ zabbix_server_dbpassword }}'
   when:
@@ -149,7 +149,7 @@
   shell: "{{ postgres_images_command | join(' ') }}"
   args:
     creates: /etc/zabbix/images.done
-    warn: no
+    warn: false
   environment:
     PGPASSWORD: '{{ zabbix_server_dbpassword }}'
   when: (zabbix_version is version_compare('3.0', '<') and zabbix_database_sqlload) or (zabbix_repo == "epel" and zabbix_database_sqlload)
@@ -161,7 +161,7 @@
   shell: "{{ postgres_data_command | join(' ') }}"
   args:
     creates: /etc/zabbix/data.done
-    warn: no
+    warn: false
   environment:
     PGPASSWORD: '{{ zabbix_server_dbpassword }}'
   when: (zabbix_version is version_compare('3.0', '<') and zabbix_database_sqlload) or (zabbix_repo == "epel" and zabbix_database_sqlload)

@@ -2,7 +2,7 @@
 - name: "Debian | Install legacy php5 packages on old distros"
   apt:
     state: present
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 3600
     name:
       - php5-{{ zabbix_server_database }}
@@ -23,7 +23,7 @@
 - name: "Debian | Install modern php packages on current distros"
   apt:
     state: present
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 3600
     name:
       - php-{{ zabbix_server_database }}

@@ -58,6 +58,6 @@
   service:
     name: zabbix-server
     state: started
-    enabled: yes
+    enabled: true
   tags:
     - zabbix-server
