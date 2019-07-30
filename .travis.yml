@@ -30,7 +30,7 @@ before_script:
 
 script:
   # Run tests.
-  - molecule test --debug
+  - molecule test
   - ls
 
 # notifications:
