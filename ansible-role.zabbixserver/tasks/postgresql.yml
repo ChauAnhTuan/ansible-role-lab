@@ -105,6 +105,7 @@
   when:
     - zabbix_version is version_compare('3.0', '>=')
     - zabbix_database_sqlload
+  changed_when: false
   tags:
     - zabbix-server
     - database
